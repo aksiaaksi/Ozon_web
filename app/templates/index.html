@@ -25,7 +25,7 @@
 
                     <li class="list-group-item">
                         <!--{{book['title']}}, (Author: {{book['author']}})-->
-                        {{book.title}}, Author: {{book.author}}, теги:{{book.hashtag}}
+                        {{book.title}}, Author: {{book.author}}, теги: {{book.hashtag|join(', ')}}
                     </li>
                 {% endfor %}
             </ul>
