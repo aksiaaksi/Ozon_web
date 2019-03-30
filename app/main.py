@@ -1,5 +1,6 @@
 import os
 
+
 import waitress
 
 from app.lib import create_book, add_book, search_books, search_book_by_id, remove_book_by_id, create_empty_book
@@ -69,8 +70,9 @@ def start():
         return redirect(url_for('book_details', book_id=book['id']))
 
     if os.getenv('APP_ENV') == 'PROD' and os.getenv('PORT'):
-        waitress.serve(app, port:os.getenv('PORT'))
+        waitress.serve(app, port=os.getenv('PORT'))
     else:
-    app.run(port=9876, debug=True)
+        app.run(port=9876, debug=True)
+
 if __name__ == '__main__':
     start()
