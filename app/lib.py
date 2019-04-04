@@ -11,7 +11,7 @@ def create_book(title, author, price, availability, hashtag):
 
 def create_empty_book():
     return {
-        'id': 'new',
+        'id': uuid.UUID(int=0),
         'title': '',
         'author': '',
         'price': '',
