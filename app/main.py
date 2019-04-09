@@ -56,13 +56,15 @@ def start():
     def book_save(book_id):
         title = request.form['title']
         author = request.form['author']
+        hashtag = request.form['hashtag']
         if book_id == 'new':
-            book = create_book(title=title, author=author)
+            book = create_book(title=title, author=author, hashtag=hashtag)
             add_book(container, book)
         else:
             book = search_book_by_id(container, book_id)
             book['title'] = title
             book['author'] = author
+            book['hashtag'] = hashtag
 
 
 

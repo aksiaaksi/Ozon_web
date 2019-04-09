@@ -15,7 +15,13 @@
         <div class="col">
             <h1>{{book.title}}</h1>
             <ul class="list-group mt-2">
-                <p1> {{book.author}} {{book.hashtag|join(', ')}}</p1>
+                <p1> {{ book.author }},
+                    {% for tag in book.hashtag %}
+
+                        {{ tag }}
+
+                    {% endfor %}
+                </p1>
 
         </div>
     </div>
