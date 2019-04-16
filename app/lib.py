@@ -71,3 +71,8 @@ def remove_book_by_id(container,book_id):
     return result
 
 
+def parse_taglines(tagline):
+    result = list(filter(lambda x: x.strip(),tagline.split(' ') ))
+    # result = tagline.split(' ')
+    # return  result.strip()
+    return result

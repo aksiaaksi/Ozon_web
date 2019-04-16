@@ -6,18 +6,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-        <form action="{{url_for('book_save', book_id = book.id)}}" method="post">
-        <input type="text" value="{{ book.author }}" name="author" placeholder="Author" required>
-        <input type="text" value="{{ book.title }}" name="title" placeholder="Title" required>
-        <input type="text" value="{% for tag in book.hashtag %} {{ tag }} {% endfor %} " name="hashtag" placeholder="Hashtag" required>
-        <button>Save</button>
+<form action="{{url_for('book_save', book_id = book.id)}}" method="post">
+    <input type="text" value="{{ book.title }}" name="title" placeholder="Title" required>
+    <input type="text" value="{{ book.author }}" name="author" placeholder="Author" required>
+    <input type="text" value="{{ book.price }}" name="price" placeholder="Price" required>
+    <input type="text" value="{{ book.availability }}" name="availability" placeholder="Availability"  >
+    <input type="text" value="{% for iter in book.hashtag %} {{ iter }} {%endfor%}" name="hashtag" placeholder="Hashtag" required>
+    <button>Save</button>
 
 
-
-        </form>
+</form>
 
 </body>
 </html>

@@ -3,7 +3,7 @@ import os
 
 import waitress
 
-from app.lib import create_book, add_book, search_books, search_book_by_id, remove_book_by_id, create_empty_book
+from app.lib import create_book, add_book, search_books, search_book_by_id, remove_book_by_id, create_empty_book,parse_taglines
 from flask import Flask, render_template, request, redirect, url_for, app
 
 
@@ -38,6 +38,7 @@ def start():
         book = None
         if book_id == 'new':
             book = create_empty_book()
+
         else:
             book = search_book_by_id(container, book_id)
 
@@ -56,14 +57,20 @@ def start():
     def book_save(book_id):
         title = request.form['title']
         author = request.form['author']
-        hashtag = request.form['hashtag']
+        price = request.form['price']
+        availability = request.form['availability']
+        hashtag = parse_taglines(request.form['hashtag'])
+
+
         if book_id == 'new':
-            book = create_book(title=title, author=author, hashtag=hashtag)
+            book = create_book(title=title, author=author, price=price, availability=availability, hashtag=hashtag)
             add_book(container, book)
         else:
             book = search_book_by_id(container, book_id)
             book['title'] = title
             book['author'] = author
+            book['price'] = price
+            book['availability'] = availability
             book['hashtag'] = hashtag
 
 
